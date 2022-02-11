@@ -6,19 +6,19 @@ def dict_comp(stop, step):
     :param step: Int provided by user
     :return: bigArray : Dictionary of python comprehension
     """
-    counter = 1
-    bigArray = {}
-    array = []
-    for num in range(1, stop + 1):
-        if len(array) < step:
-            array.append(num)
-        if len(array) == step:
-            bigArray[f"item_{counter}"] = array
-            array = []
-            counter += 1
+    if type(stop) != int or type(step) != int:
+        return "Only integers allowed"
+    else:
+        counter = 1
+        big_array = {}
+        array = []
+        for num in range(1, stop + 1):
+            if len(array) < step:
+                array.append(num)
+            if len(array) == step:
+                big_array[f"item-{counter}"] = array
+                array = []
+                counter += 1
 
-    return bigArray
+        return big_array
 
-
-if __name__ == '__main__':
-    print(dict_comp(10, 4))
