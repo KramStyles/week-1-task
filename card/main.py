@@ -8,13 +8,13 @@ def validate_card(card):
     msg = ""
     card_length = len(str(card))
     if card_length == 15:
-        msg = "American Express"
+        msg = "amex"
     elif card_length == 16 and str(card)[0:2] in ['51', '52', '53', '54', '55']:
-        msg = "Master Card"
+        msg = "MasterCard"
     elif (card_length == 13 or len(str(card)) == 16) and str(card)[0] == '4':
-        msg = "Visa Card"
+        msg = "Visa"
     else:
-        return "Card not identified"
+        return "INVALID"
 
     products = [str(card)[x] for x in range(len(str(card)) - 2, -1, -2)]
     dbl_products = [int(x) * 2 for x in products]
@@ -31,11 +31,9 @@ def validate_card(card):
 
     sum_total = sum_products + sum_others
     if sum_total % 10:
-        msg += f" {card} is Invalid"
-    else:
-        msg += f" {card} is Valid"
+        msg = "Invalid"
 
-    return msg
+    return msg.upper()
 
 
 cards = american + american2 + master + visa
