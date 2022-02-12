@@ -21,6 +21,8 @@ def cryptography():
                         indx = lowers.index(x) - level
                         if indx < 0:
                             indx += len(lowers)
+                        if indx == 26:
+                            indx = 0
                         msg += lowers[indx]
                     else:
                         msg += x
@@ -34,6 +36,8 @@ def cryptography():
                         indx = lowers.index(x) + level
                         if indx > len(lowers):
                             indx -= len(lowers)
+                        if indx == 26:
+                            indx = 0
                         msg += lowers[indx]
                     else:
                         msg += x
