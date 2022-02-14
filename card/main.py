@@ -4,6 +4,7 @@
 # visa = [4111111111111111, 4012888888881881, 4222222222222, 4003600000000014]
 
 
+
 def validate_card():
     """
     The Validate_Card Function take a credit card number and determine whether that number is an
@@ -15,7 +16,7 @@ def validate_card():
     """
     print("Hello and Welcome")
     card = input("Please enter your Card Number: ").strip()
-    msg = ""
+    msg = "heyy"
     try:
         card_length = len(card)
         if card_length == 15:
@@ -45,8 +46,8 @@ def validate_card():
             msg = "Invalid"
     except Exception as err:
         msg = f"An Exception Occurred: {err}"
-    finally:
-        return msg.upper()
+    
+    return msg.upper()
 
 
 print(validate_card())
