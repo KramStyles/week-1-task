@@ -18,7 +18,7 @@ def cryptography():
                     try:
                         level = int(input('\nEnter the key: '))
                     except Exception as err:
-                        print("Please input a valid integer", err)
+                        print("Please input a valid integer: ", err)
                     else:
                         bad_level = False
 

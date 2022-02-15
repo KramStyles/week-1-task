@@ -1,3 +1,6 @@
+from logging.config import dictConfig
+
+
 def dict_comp(stop, step):
     """
     This function takes in two integer values 'stop' and 'step' and returns a
@@ -22,3 +25,11 @@ def dict_comp(stop, step):
 
         return big_array
 
+
+stop = 10
+step = 4
+
+array = [x for x in range(1, stop + 1)]
+big_array = {f"item-{i}": array[(i-1)*step :(i * step)] for i in range(1, int(stop/step) + 1)}
+
+dict_comp(10, 4)
