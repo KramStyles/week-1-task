@@ -10,10 +10,18 @@ def cryptography():
     try:
         while repeat:
             msg = ''
-            choice = input("Input 1 if you want to encrypt and 0 if you want to decrypt: ")
+            choice = input("\nType 1 if you want to encrypt. \nType 0 if you want to decrypt: ")
             if choice == '0':
-                word = input('Enter ciphertext to be decoded: ')
-                level = int(input('Enter the key: '))
+                word = input('\nEnter ciphertext to be decoded: ')
+                bad_level = True
+                while bad_level:
+                    try:
+                        level = int(input('\nEnter the key: '))
+                    except Exception as err:
+                        print("Please input a valid integer", err)
+                    else:
+                        bad_level = False
+
                 if level > len(lowers):
                     level %= len(lowers)
                 for x in word:
@@ -27,8 +35,15 @@ def cryptography():
                     else:
                         msg += x
             elif choice == '1':
-                word = input('Enter plaintext to be encoded: ')
-                level = int(input('Enter the key: '))
+                word = input('\nEnter plaintext to be encoded: ')
+                bad_level = True
+                while bad_level:
+                    try:
+                        level = int(input('\nEnter the key: '))
+                    except Exception as err:
+                        print("\nPlease input a valid integer", err)
+                    else:
+                        bad_level = False
                 if level > len(lowers):
                     level %= len(lowers)
                 for x in word:
@@ -42,11 +57,11 @@ def cryptography():
                     else:
                         msg += x
             else:
-                msg = 'Please, make a valid choice'
+                msg = '\nPlease, make a valid choice. Type 1 or 0'
             print(msg)
-            repeat = input('Do you want to use our crypt service again? ')
+            repeat = input('\nDo you want to use our crypt service again? Yes | No: ')
             if repeat.title() == 'No':
-                print('Thank you for testing our product. We hope to see you soon!')
+                print('\nThank you for testing our product. We hope to see you soon!')
                 break
     except Exception as err:
         print("An Error occurred:", err)
