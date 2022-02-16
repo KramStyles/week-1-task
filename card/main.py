@@ -1,9 +1,3 @@
-# american = [375987654321001, 379996620002002, 377107234567890]
-# american2 = [378282246310005, 371449635398431, 378734493671000]
-# master = [5555555555554444, 5105105105105100]
-# visa = [4111111111111111, 4012888888881881, 4222222222222, 4003600000000014]
-
-
 
 def validate_card():
     """
@@ -44,10 +38,11 @@ def validate_card():
         sum_total = sum_products + sum_others
         if sum_total % 10:
             msg = "Invalid"
+    except [ValueError, TypeError, ArithmeticError] as err:
+        msg = "Please ensure only numbers were inputted"
     except Exception as err:
         msg = f"An Exception Occurred: {err}"
     
     return msg.upper()
 
 
-print(validate_card())

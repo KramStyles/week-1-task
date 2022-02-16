@@ -1,10 +1,11 @@
 from art import art
+import string
 
 
 def cryptography():
     print(art)
     print("Hello. Welcome to the Crypt Program")
-    lowers = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    lowers = string.ascii_lowercase
 
     repeat = 'Yes'
     try:
@@ -65,6 +66,3 @@ def cryptography():
                 break
     except Exception as err:
         print("An Error occurred:", err)
-
-
-cryptography()
